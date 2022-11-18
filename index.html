@@ -51,7 +51,13 @@
         Hint: Use the equal operator ==
         Edit the condition to change the output to "This is not true" */
 
-
+        let cool=false;
+        if (cool){
+            console.log("This is true");
+        }
+        else{
+            console.log("This is not true");
+        }
 
 
         //Exercise 2
@@ -62,37 +68,67 @@
         Edit the condition to change the output to "Hello world!"
         Hint: use the not equal operator != 
         */
+        let bud="daniel";
+        if(bud!="daniel"){
+            console.log("Hi "+bud);
+        }
+        else{
+            console.log("Hello World");
+        }
+        let stormSound=document.querySelector("#storm");
 
       
 
         //Exercise 3
         //Select the input tag by its id and assign is variable with const keyword
-      
+        const barometerInput=document.querySelector("#barometer");
 
         function changeWeather(evt) {
             evt.preventDefault();
             //Exercise 4
             //Get the value of the input using its variable name and the value property
             //Log its value in the console
-       
+            let inputValue=barometerInput.value;
+            console.log(inputValue);
 
-            /* Exercise 6
-            Create an if statement to show the sun at pressures over 30
-            Add an else to alert "not a valid barometric pressure"
-            Exercise 7
-            In between the if and else, add an else if statement to add clouds at pressures below 30
-            Exercise 8
-            Edit the else if statement you just made.
-            Use the 'and' operator to check for a range of numbers greater than or equal to 29 but less than 30
-            Exercise 9
-            Add 2 more else if statements for the following:
-            Add rain clouds for pressures greater than or equal to 28 but less than 29
-            Make rain for pressures greater than or equal to 27 but less than 28
-            Bonus
-            Add another else if for pressures under 27
-            Make it rain and play the thunderstorm audio
-            select the audio tag by its id and run the play() method on it
-            */
+            // Exercise 6
+            // Create an if statement to show the sun at pressures over 30
+            // Add an else to alert "not a valid barometric pressure"
+            if(inputValue>30){
+                sunny();
+            }
+            else if(inputValue<30 &&inputValue>=29){
+                addClouds();
+            }
+            else if(inputValue<29 &&inputValue>=28){
+                addRainClouds();
+            }
+            else if(inputValue<28 &&inputValue>=27){
+                makeRain();
+            }
+            else if(inputValue<27){
+                makeRain();
+                stormSound.play();
+            }
+            else{
+                alert("not a valid barometric pressure");
+            }
+            // Exercise 7
+            // In between the if and else, add an else if statement to add clouds at pressures below 30
+            
+            // Exercise 8
+            // Edit the else if statement you just made.
+            // Use the 'and' operator to check for a range of numbers greater than or equal to 29 but less than 30
+            
+            // Exercise 9
+            // Add 2 more else if statements for the following:
+            // Add rain clouds for pressures greater than or equal to 28 but less than 29
+            // Make rain for pressures greater than or equal to 27 but less than 28
+            // Bonus
+            // Add another else if for pressures under 27
+            // Make it rain and play the thunderstorm audio
+            // select the audio tag by its id and run the play() method on it
+           
 
           
         }
@@ -100,7 +136,7 @@
         //Exercise 5
         /*Add an event listener for the input object using its variable name
         and have it call the changeWeather function on the 'change' event */
-
+        barometerInput.addEventListener("change", changeWeather);
 
 
 
